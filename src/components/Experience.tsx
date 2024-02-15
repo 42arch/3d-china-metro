@@ -1,6 +1,6 @@
 'use client'
 
-import { OrbitControls, Html } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import Model from './Model'
 import { useControls } from 'leva'
 import { CITY_OPTIONS } from '@/lib/constants'
@@ -21,7 +21,7 @@ const Experience = () => {
   return (
     <>
       <OrbitControls makeDefault />
-      <Suspense fallback={<Html>loading</Html>}>
+      <Suspense fallback={null}>
         <Model city={city} />
       </Suspense>
       <mesh rotation-x={-Math.PI * 0.5} scale={10} visible={plane}>
