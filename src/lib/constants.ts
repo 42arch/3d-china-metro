@@ -4,11 +4,11 @@ export const CITIES = [
     label: '合肥',
     asset: './models/hefei.glb'
   },
-  // {
-  //   value: 'beijing',
-  //   label: '北京',
-  //   asset: './models/beijing.glb'
-  // },
+  {
+    value: 'beijing',
+    label: '北京',
+    asset: './models/beijing.glb'
+  },
   {
     value: 'nanjing',
     label: '南京',
@@ -27,7 +27,7 @@ export const CITIES = [
 ]
 
 export const CITY_OPTIONS = {
-  // 北京: 'beijing',
+  北京: 'beijing',
   南京: 'nanjing',
   沈阳: 'shenyang',
   西安: 'xian',
