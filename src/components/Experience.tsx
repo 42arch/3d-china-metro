@@ -1,16 +1,16 @@
 'use client'
 
+import { Suspense, useMemo } from 'react'
 import {
   GizmoHelper,
   GizmoViewport,
   Grid,
-  OrbitControls,
-  useProgress
+  OrbitControls
 } from '@react-three/drei'
+import { button, useControls } from 'leva'
+import saveAs from 'file-saver'
 import Model from './Model'
-import { useControls } from 'leva'
 import { CITY_OPTIONS } from '@/lib/constants'
-import { Suspense } from 'react'
 
 const Experience = () => {
   const { city, grid } = useControls({
@@ -24,8 +24,21 @@ const Experience = () => {
     }
   })
 
-  const { active, progress, errors, item, loaded, total } = useProgress()
-  console.log(active, progress, errors, item, loaded, total)
+  const exports = useMemo(() => {
+    const temp: Record<string, any> = {}
+    temp['导出模型'] = button(() => {
+      const link = document.createElement('a')
+      const file = `/models/${city}.glb`
+      link.href = file
+      link.setAttribute('download', file)
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+    return temp
+  }, [city])
+
+  useControls('导出', exports, { collapsed: true }, [exports])
 
   return (
     <>
