@@ -8,7 +8,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '3D China Metro',
-  description: '中国城市地铁3D图'
+  description: '中国城市地铁3D图',
+  keywords: [
+    '中国地铁',
+    '3d图',
+    '中国轨道交通',
+    '中国城市地铁路线图',
+    '3d metro '
+  ]
 }
 
 export default function RootLayout({
